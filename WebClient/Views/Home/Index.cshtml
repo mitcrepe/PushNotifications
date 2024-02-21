@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Enter your username:</p>
+    <form asp-controller="Home" asp-action="Dashboard" method="post">
+        <input name="username" type="text" />
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+
+<script>
+    // Used on "old restore user"" logic.
+    // checkForUser();
+
+    // async function getSubscription() {
+    //     let reg = await navigator.serviceWorker.register('/js/service-worker.js');
+    //     return await reg.pushManager.getSubscription();
+    // }
+
+    // async function checkForUser() {
+    //     let sub = await getSubscription();
+
+    //     if (sub) {
+    //         let url = '/api/push/restorerUser?';
+    //         let params = new URLSearchParams({
+    //             endpoint: sub.endpoint
+    //         });
+
+    //         let response = await fetch(url + params);
+    //         if (response.ok) {
+    //             let user = await response.text();
+    //             if (user) {
+    //                 window.location.replace('/home/dashboard?' + new URLSearchParams({
+    //                     username: user
+    //                 }));
+    //             } else {
+    //                 console.log('User not found. Deleting subscription.');
+    //                 sub.unsubscribe();
+    //             }
+    //         } else {
+    //             console.log('User not found. Deleting subscription.');
+    //             sub.unsubscribe();
+    //         }
+    //     }
+    // }
+</script>

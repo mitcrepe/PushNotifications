@@ -1,0 +1,64 @@
+﻿@model DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<input type="hidden" id="public-key" asp-for="PublicKey" />
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <input id="username"/>
+    <button id="sub-btn">Subscribe</button>
+    <p id="error-message" hidden style="color: red;white-space: pre;"></p>
+</div>
+
+<div class="text-center">
+    <form id="msg-form">
+        <table class="text-center">
+            <tr>
+                <td>
+                    To user
+                </td>
+                <td>
+                    <select name="targetUser" style="width: 250px;">
+                        @if (Model.AvailableUsers.Count > 0)
+                        {
+                            @foreach (var user in Model.AvailableUsers)
+                            {
+                                <option value="@user">@user</option>
+                            }
+                        }
+                        else
+                        {
+                            <option value="">No subscribed users</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Title
+                </td>
+                <td>
+                    <input id="Title" name="Title" style="width: 250px;" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Message
+                </td>
+                <td>
+                    <textarea id="Body" name="Body" rows="3" maxlength="100" style="resize: none; width: 250px;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button id="send-msg-btn" type="button">Send</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script src="~/js/dashboard.js"></script>
